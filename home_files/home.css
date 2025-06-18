@@ -10,6 +10,7 @@ body {
     color: #333; /* Color de texto principal */
     line-height: 1.6; /* Altura de línea para mejor legibilidad */
     background-color: #f8f8f8; /* Fondo general sutil */
+    overflow-x: hidden; /* Evita el scroll horizontal en exceso */
 }
 
 *, *::before, *::after {
@@ -35,67 +36,63 @@ p {
 
 a {
     text-decoration: none;
-    color: #3498db;
+    color: #3498db; /* Color de enlace principal */
     transition: color 0.3s ease;
 }
 
 a:hover {
-    color: #2980b9;
+    color: #2980b9; /* Tono más oscuro al pasar el ratón */
 }
 
-/* --- Cabecera Principal --- */
+ul {
+    list-style: none; /* Quita los puntos de la lista */
+    padding: 0;
+    margin: 0;
+}
+
+/* --- Encabezado Principal (Header) --- */
 .main-header {
-    background-color: #2c3e50; /* Azul oscuro corporativo */
-    color: white;
+    background-color: #ffffff;
     padding: 15px 0;
-    position: fixed;
-    width: 100%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky; /* Sticky header */
     top: 0;
     left: 0;
-    z-index: 1000;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Sombra más pronunciada */
+    width: 100%;
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
 }
 
 .main-header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    min-height: 60px; /* Altura mínima para la cabecera */
 }
 
 .main-header .logo img {
-    height: 50px; /* Tamaño del logo ligeramente más grande */
-    vertical-align: middle;
+    height: 50px; /* Tamaño del logo */
+    vertical-align: middle; /* Alinea la imagen */
 }
 
-/* Navegación */
 .main-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
     display: flex;
-}
-
-.main-nav ul li {
-    margin-left: 35px; /* Mayor espacio entre elementos del menú */
+    gap: 30px; /* Espacio entre elementos del menú */
 }
 
 .main-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.05em;
+    color: #555;
+    font-weight: 500;
+    font-size: 1.1em;
     padding: 5px 0;
-    position: relative; /* Para el efecto underline */
+    position: relative; /* Para el efecto de subrayado */
 }
 
-.main-nav ul li a::after { /* Efecto underline al pasar el ratón */
+.main-nav ul li a::after {
     content: '';
     position: absolute;
+    left: 0;
+    bottom: 0;
     width: 0;
     height: 2px;
-    bottom: -5px;
-    left: 0;
     background-color: #3498db;
     transition: width 0.3s ease;
 }
@@ -104,280 +101,395 @@ a:hover {
     width: 100%;
 }
 
-/* Botones de Llamada a la Acción (CTA) */
+/* Botón CTA general */
 .cta-button {
-    background-color: #e74c3c; /* Rojo vibrante */
-    color: white;
+    background-color: #3498db;
+    color: #ffffff;
+    padding: 12px 25px;
     border: none;
-    padding: 12px 25px; /* Más padding para que se vea más grande */
-    border-radius: 30px; /* Bordes más redondeados (píldora) */
-    cursor: pointer;
-    font-weight: bold;
+    border-radius: 5px;
     font-size: 1em;
+    font-weight: 700;
+    cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    white-space: nowrap; /* Evita que el texto se rompa */
 }
 
 .cta-button:hover {
-    background-color: #c0392b;
-    transform: translateY(-2px); /* Pequeño levantamiento */
+    background-color: #2980b9;
+    transform: translateY(-2px); /* Pequeño efecto de elevación */
 }
 
-/* --- Sección Hero (Carrusel Principal) --- */
+/* Menú de hamburguesa (oculto por defecto en desktop) */
+.menu-toggle {
+    display: none; /* Oculto por defecto en desktop */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001; /* Asegura que esté por encima del menú */
+}
+
+.menu-toggle span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #333;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+/* Animación para el botón de hamburguesa cuando está abierto */
+.menu-toggle.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* --- Sección Hero (Estática) --- */
 .hero-section {
-    height: 100vh;
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    text-align: center;
     position: relative;
-    transition: background-image 1s ease-in-out;
-    margin-top: 70px; /* Ajuste para el header más alto */
-    overflow: hidden; /* Asegura que nada se desborde */
+    width: 100%;
+    min-height: 95vh; /* Altura mínima para asegurar visibilidad */
+    background: url('imgs/fondo_home.jpg') no-repeat center center/cover; /* Imagen de fondo estática */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #ffffff;
+    padding: 50px 0; /* Padding para asegurar espacio */
 }
 
 .hero-overlay {
-    background-color: rgba(0, 0, 0, 0.65); /* Capa más oscura para mejor contraste */
-    padding: 60px 40px; /* Más padding */
-    border-radius: 15px; /* Más redondeado */
-    max-width: 900px; /* Mayor ancho máximo */
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3); /* Sombra más fuerte */
-    transform: translateY(0);
-    opacity: 1;
-    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    background-color: rgba(0, 0, 0, 0.6); /* Capa oscura semitransparente */
+    padding: 40px;
+    border-radius: 10px;
+    max-width: 800px;
+    width: 90%; /* Ajuste de ancho para responsividad */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    animation: fadeIn 1s ease-out forwards; /* Animación de entrada */
 }
 
-/* Animación de entrada para el contenido del overlay (requiere JS para activar clases) */
-.hero-overlay.fade-in {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.hero-section h2 {
-    font-size: 3.8em; /* Título más grande */
+.hero-title {
+    font-size: 3.5em;
     margin-bottom: 20px;
-    color: white; /* Color de título blanco para el hero */
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+    font-weight: 700;
+    color: #ffffff; /* Títulos en blanco para contraste */
+    line-height: 1.2;
 }
 
-.hero-section p {
-    font-size: 1.4em; /* Subtítulo más grande */
-    margin-bottom: 40px;
+.hero-subtitle {
+    font-size: 1.3em;
+    margin-bottom: 30px;
     color: #f0f0f0;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
 }
 
-/* Estilos para la lista de servicios dentro del hero */
-.hero-services-list {
-    list-style: none;
-    padding: 0;
-    margin: 30px 0 50px; /* Más margen */
+.hero-buttons {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    gap: 15px; /* Mayor espacio entre los elementos */
+    gap: 20px; /* Espacio entre los botones */
+    flex-wrap: wrap; /* Permite que los botones se envuelvan en pantallas pequeñas */
 }
 
-.hero-services-list li {
-    background-color: rgba(255, 255, 255, 0.25); /* Fondo semitransparente un poco más visible */
-    padding: 10px 20px; /* Más padding */
-    border-radius: 25px; /* Más redondeados */
-    font-size: 1.05em; /* Ligeramente más grande */
-    font-weight: bold;
-    color: white;
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(3px); /* Efecto de desenfoque en el fondo */
-    transition: background-color 0.3s ease;
-}
-
-.hero-services-list li:hover {
-    background-color: rgba(255, 255, 255, 0.4);
-}
-
-.hero-cta {
-    background-color: #3498db;
-    color: white;
-    text-decoration: none;
-    padding: 18px 35px; /* Botón CTA más grande */
-    border-radius: 30px;
-    font-weight: bold;
-    font-size: 1.15em;
+.hero-cta-main {
+    background-color: #27ae60; /* Verde vibrante */
+    color: #ffffff;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 1.1em;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    display: inline-block; /* Para aplicar transform */
+    display: inline-block; /* Para que padding y transform funcionen bien */
 }
 
-.hero-cta:hover {
-    background-color: #2980b9;
+.hero-cta-main:hover {
+    background-color: #2ecc71; /* Tono más claro de verde */
     transform: translateY(-3px);
 }
 
-/* --- Secciones de Contenido General (Servicios, Sobre Nosotros, Ventajas) --- */
-section {
-    padding: 80px 0; /* Más padding superior/inferior para las secciones */
+.hero-cta-secondary {
+    background-color: transparent;
+    color: #ffffff;
+    padding: 15px 30px;
+    border: 2px solid #ffffff; /* Borde blanco */
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    display: inline-block;
 }
 
-section:nth-of-type(even) { /* Fondo alterno para secciones para mejor diferenciación */
-    background-color: #f8f8f8;
-}
-
-section:nth-of-type(odd) {
+.hero-cta-secondary:hover {
     background-color: #ffffff;
+    color: #3498db;
+    transform: translateY(-3px);
 }
 
-.section-description {
-    font-size: 1.15em;
-    color: #666;
-    max-width: 800px;
-    margin: 0 auto 50px auto;
+/* Animación de entrada para el overlay */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* --- SECCIÓN DE ÁREAS DE SERVICIO (áreas-servicio-section) --- */
+.areas-servicio-section {
+    padding: 80px 0;
+    background-color: #f8f8f8;
     text-align: center;
 }
 
-/* Servicios Detallados */
+.areas-servicio-section h2 {
+    font-size: 2.8em;
+    margin-bottom: 15px;
+}
+
+.areas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.area-item {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.area-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.areas-servicio-section .area-item i {
+    font-size: 3.5em;
+    margin-bottom: 15px;
+    /* Eliminamos 'color' genérico de aquí */
+}
+
+/* Nuevos estilos de color para iconos de servicios */
+.icon-control-accesos { color: #2c3e50; } /* Gris oscuro/azul para seguridad */
+.icon-limpieza-hoteles { color: #3498db; } /* Azul limpio para hoteles */
+.icon-limpieza-colegios { color: #27ae60; } /* Verde para salud y educación */
+.icon-comunidades-oficinas { color: #8e44ad; } /* Púrpura para organización */
+.icon-eventos-congresos { color: #e67e22; } /* Naranja vibrante para eventos */
+.icon-servicios-auxiliares { color: #f1c40f; } /* Amarillo/Oro para apoyo */
+
+
+.area-item h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.area-item p {
+    font-size: 0.95em;
+    color: #666;
+}
+
+
+/* --- SECCIÓN DE SERVICIOS SECUNDARIA (servicios-secundaria) --- */
+.services-section {
+    padding: 80px 0;
+    background-color: #ecf0f1;
+    text-align: center;
+}
+
+.services-section h2 {
+    font-size: 2.8em;
+    margin-bottom: 15px;
+}
+
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Columnas flexibles */
-    gap: 30px; /* Espacio entre las columnas */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
     margin-top: 40px;
 }
 
 .service-item {
-    background-color: #fff;
+    background-color: #ffffff;
     padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    text-align: left; /* Alineado a la izquierda */
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    text-align: left;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .service-item:hover {
-    transform: translateY(-7px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
 }
 
 .service-item h3 {
-    color: #3498db;
-    font-size: 1.8em;
+    font-size: 1.6em;
+    color: #34495e;
     margin-bottom: 15px;
-    border-bottom: 2px solid #eee; /* Línea divisoria */
-    padding-bottom: 10px;
 }
 
 .service-item ul {
-    list-style: none;
-    padding: 0;
-    margin-top: 15px;
+    list-style: none; /* Elimina los puntos predeterminados */
+    padding-left: 0;
 }
 
 .service-item ul li {
+    position: relative;
+    padding-left: 25px; /* Espacio para el icono personalizado */
     margin-bottom: 10px;
     font-size: 1em;
     color: #555;
-    position: relative;
-    padding-left: 25px;
 }
 
-.service-item ul li::before { /* Icono de check o flecha */
-    content: '✅'; /* O un icono de FontAwesome */
+.service-item ul li::before {
+    content: '\2713'; /* Unicode para un tick (✓) */
+    font-family: 'Font Awesome 5 Free'; /* Asegura que Font Awesome pueda renderizarlo */
+    font-weight: 900; /* Para el estilo sólido de Font Awesome si usas la v5 */
     position: absolute;
     left: 0;
-    color: #28a745; /* Verde */
+    color: #27ae60; /* Color verde para el tick */
+    font-size: 0.9em;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
-/* Sección Sobre Nosotros */
-.about-section .container {
-    display: flex;
-    align-items: center;
-    gap: 50px; /* Espacio entre texto e imagen */
+.service-item p {
+    font-size: 1em;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+
+/* --- SECCIÓN SOBRE NOSOTROS (about-section) --- */
+.about-section {
+    padding: 80px 0;
+    background-color: #ffffff;
 }
 
 .about-content {
     display: flex;
-    flex-wrap: wrap; /* Para que se apilen en móvil */
-    gap: 40px;
     align-items: center;
+    gap: 50px;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan */
 }
 
 .about-text {
-    flex: 1; /* Ocupa el espacio disponible */
+    flex: 1; /* Ocupa el espacio restante */
     min-width: 300px; /* Ancho mínimo para el texto */
 }
 
 .about-text h2 {
     font-size: 2.8em;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 .about-text p {
     font-size: 1.1em;
+    color: #555;
     margin-bottom: 20px;
-    color: #444;
 }
 
 .about-image {
     flex: 1;
-    min-width: 300px;
-    text-align: center;
+    min-width: 300px; /* Ancho mínimo para la imagen */
+    text-align: center; /* Centra la imagen si es más pequeña */
 }
 
 .about-image img {
     max-width: 100%;
     height: auto;
-    border-radius: 10px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
 }
 
+/* --- SECCIÓN POR QUÉ ELEGIRNOS (why-choose-us-section) --- */
+.why-choose-us-section {
+    padding: 80px 0;
+    background-color: #f2f6f9;
+    text-align: center;
+}
 
-/* Sección Por Qué Elegirnos / Ventajas */
+.why-choose-us-section h2 {
+    font-size: 2.8em;
+    margin-bottom: 15px;
+}
+
 .advantages-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
     margin-top: 40px;
-    text-align: center;
 }
 
 .advantage-item {
-    background-color: #fff;
+    background-color: #ffffff;
     padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
 }
 
 .advantage-item:hover {
-    transform: translateY(-7px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
-.advantage-item i { /* Estilos para los íconos placeholder */
-    font-size: 3.5em;
-    color: #e74c3c; /* Color del ícono */
-    margin-bottom: 15px;
-    display: block; /* Para centrar */
+.why-choose-us-section .advantage-item i {
+    font-size: 3em;
+    margin-bottom: 20px;
+    /* Eliminamos 'color' genérico de aquí */
 }
+
+/* Nuevos estilos de color para iconos de ventajas */
+.icon-ventaja-seguridad { color: #34495e; } /* Azul oscuro/gris para seguridad */
+.icon-ventaja-profesionalidad { color: #f39c12; } /* Naranja/Oro para profesionalidad */
+.icon-ventaja-limpieza { color: #1abc9c; } /* Turquesa/Verde para limpieza */
+.icon-ventaja-atencion { color: #c0392b; } /* Rojo oscuro para atención */
 
 .advantage-item h3 {
-    font-size: 1.6em;
-    color: #2c3e50;
+    font-size: 1.4em;
     margin-bottom: 10px;
+    color: #333;
 }
 
 .advantage-item p {
-    font-size: 1em;
+    font-size: 0.9em;
     color: #666;
 }
 
-/* Sección de Contacto */
+
+/* --- SECCIÓN DE CONTACTO (contact-section) --- */
 .contact-section {
-    background-color: #ecf0f1; /* Fondo suave para la sección de contacto */
+    padding: 80px 0;
+    background-color: #34495e; /* Fondo oscuro para contraste */
+    color: #ffffff;
+    text-align: center;
 }
 
-.contact-section .container {
-    text-align: center;
+.contact-section h2 {
+    font-size: 2.8em;
+    margin-bottom: 15px;
+    color: #ffffff;
 }
 
 .contact-content {
@@ -391,175 +503,172 @@ section:nth-of-type(odd) {
 .contact-info, .contact-form {
     flex: 1;
     min-width: 300px;
-    background-color: #fff;
+    max-width: 500px; /* Limitar ancho para que no sean demasiado grandes */
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo semitransparente */
     padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     text-align: left;
 }
 
 .contact-info h3, .contact-form h3 {
-    color: #3498db;
-    font-size: 1.8em;
-    margin-bottom: 20px;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 10px;
+    font-size: 2em;
+    margin-bottom: 25px;
+    color: #ffffff;
 }
 
 .contact-info p {
     font-size: 1.1em;
-    margin-bottom: 10px;
-    color: #555;
+    margin-bottom: 15px;
+    line-height: 1.8;
 }
 
 .contact-info p strong {
-    color: #2c3e50;
+    color: #2ecc71; /* Un color de acento para la información importante */
+}
+
+.contact-info a {
+    color: #2ecc71; /* Color de enlace para teléfono/email */
 }
 
 .social-links {
-    margin-top: 25px;
+    margin-top: 30px;
+    display: flex;
+    gap: 20px;
+    justify-content: center; /* Centrar los iconos sociales */
 }
 
 .social-icon {
-    display: inline-block;
-    background-color: #2c3e50;
-    color: white;
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
-    text-align: center;
-    font-size: 1.2em;
-    margin: 0 8px;
+    background-color: #2c3e50; /* Fondo de los iconos sociales */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    color: #ffffff; /* Color de texto predeterminado para los iconos */
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
+/* Colores específicos para iconos de redes sociales */
+.social-icon .icon-facebook { color: #3b5998; } /* Azul Facebook */
+.social-icon .icon-instagram { color: #C13584; } /* Morado Instagram */
+.social-icon .icon-linkedin { color: #007bb5; } /* Azul LinkedIn */
+
+
 .social-icon:hover {
-    background-color: #3498db;
+    background-color: #3498db; /* Cambia el fondo al pasar el ratón */
     transform: translateY(-3px);
 }
 
-.contact-form form {
-    display: flex;
-    flex-direction: column;
-}
 
 .contact-form input[type="text"],
 .contact-form input[type="email"],
 .contact-form textarea {
-    padding: 12px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: none;
     border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo ligeramente transparente para los campos */
+    color: #333;
     font-size: 1em;
-    transition: border-color 0.3s ease;
+    box-sizing: border-box; /* Incluye padding en el ancho */
 }
 
-.contact-form input[type="text"]:focus,
-.contact-form input[type="email"]:focus,
-.contact-form textarea:focus {
-    border-color: #3498db;
-    outline: none;
-    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+.contact-form input[type="text"]::placeholder,
+.contact-form input[type="email"]::placeholder,
+.contact-form textarea::placeholder {
+    color: #888;
 }
 
 .contact-form textarea {
     resize: vertical; /* Permite redimensionar verticalmente */
+    min-height: 120px;
 }
 
 .contact-form .cta-button {
-    align-self: flex-start; /* Alinea el botón a la izquierda en el formulario */
-    margin-top: 10px;
+    width: 100%; /* El botón ocupa todo el ancho */
+    padding: 15px;
+    font-size: 1.1em;
 }
 
-/* --- Pie de Página --- */
+/* --- Pie de Página (Footer) --- */
 .main-footer {
     background-color: #2c3e50;
-    color: white;
+    color: #ffffff;
     text-align: center;
     padding: 30px 0;
     font-size: 0.9em;
 }
 
-/* --- Responsive Design (Media Queries) --- */
+/* --- Media Queries para Responsividad --- */
 
-/* Para pantallas más pequeñas (tabletas y móviles) */
+/* Para tablets y pantallas medianas */
 @media (max-width: 992px) {
-    .main-header .container {
-        flex-direction: column; /* Apila logo y nav */
-        text-align: center;
+    .main-nav {
+        display: none; /* Oculta la navegación principal */
+        flex-direction: column;
+        position: absolute;
+        top: 80px; /* Debajo del header */
+        left: 0;
+        width: 100%;
+        background-color: #ffffff;
+        box-shadow: 0 4px 5px rgba(0,0,0,0.1);
+        padding: 20px 0;
+        transform: translateY(-100%); /* Oculto arriba */
+        transition: transform 0.3s ease-out;
+        z-index: 999;
     }
 
-    .main-header .logo {
-        margin-bottom: 15px;
+    .main-nav.open {
+        transform: translateY(0); /* Visible */
     }
 
     .main-nav ul {
-        flex-wrap: wrap; /* Permite que el menú se envuelva */
-        justify-content: center;
-        margin-bottom: 15px;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
     }
 
-    .main-nav ul li {
-        margin: 0 15px 10px; /* Ajusta márgenes para menú envuelto */
+    .main-nav ul li a {
+        font-size: 1.2em;
+        padding: 10px 0;
     }
 
-    .cta-button {
-        margin-bottom: 10px; /* Espacio debajo del botón en móvil */
+    .menu-toggle {
+        display: flex; /* Muestra el botón de hamburguesa */
     }
 
-    .hero-section h2 {
-        font-size: 2.8em; /* Ajusta el tamaño del título del hero */
+    .main-header .cta-button {
+        display: none; /* Oculta el botón CTA en el header si el menú es hamburguesa */
     }
 
-    .hero-section p {
+    .hero-title {
+        font-size: 2.8em;
+    }
+
+    .hero-subtitle {
         font-size: 1.1em;
     }
 
-    .hero-overlay {
-        padding: 40px 25px; /* Menos padding en overlay */
-    }
-
-    .hero-services-list {
-        margin: 20px 0 30px; /* Ajusta márgenes */
-    }
-
-    .hero-services-list li {
-        font-size: 0.9em; /* Reduce el tamaño de fuente */
-        padding: 7px 12px;
-    }
-
-    .hero-cta {
-        padding: 15px 30px; /* Botón CTA más pequeño */
-        font-size: 1.05em;
-    }
-
-    section {
-        padding: 60px 0; /* Menos padding en secciones */
-    }
-
-    .section-description {
-        font-size: 1em;
-        margin-bottom: 30px;
+    .areas-grid, .services-grid, .advantages-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Ajuste para tablets */
     }
 
     .about-content {
-        flex-direction: column; /* Apila el texto y la imagen en "Sobre Nosotros" */
+        flex-direction: column; /* Apila el contenido en tablets */
         text-align: center;
     }
 
     .about-image {
-        order: -1; /* Mueve la imagen arriba del texto en móvil si se desea */
+        order: -1; /* Mueve la imagen arriba en móviles/tablets */
         margin-bottom: 30px;
     }
 
     .contact-content {
-        flex-direction: column; /* Apila información y formulario de contacto */
-    }
-
-    .contact-info, .contact-form {
-        min-width: unset; /* Reinicia el min-width */
-        width: 100%; /* Ocupa todo el ancho */
+        flex-direction: column;
     }
 }
 
@@ -573,55 +682,52 @@ section:nth-of-type(odd) {
         height: 40px;
     }
 
-    .main-nav ul {
-        flex-direction: column; /* Apila los elementos del menú */
-        align-items: center;
+    .hero-section {
+        min-height: calc(100vh - 60px); /* Asegura que siga ocupando la altura correcta */
     }
 
-    .main-nav ul li {
-        margin: 5px 0; /* Poco margen vertical */
+    .hero-overlay {
+        padding: 35px 10px 55px 10px; /* Ajustado el padding para móviles (de 25px a 35px arriba y de 40px a 55px abajo) */
+        border-radius: 8px;
     }
-
-    .cta-button {
-        padding: 8px 15px;
+    .hero-title {
+        font-size: 1.8em;
+        margin-bottom: 10px;
+    }
+    .hero-subtitle {
+        font-size: 0.9em;
+        margin-bottom: 20px;
+    }
+    .hero-cta-main, .hero-cta-secondary {
+        padding: 10px 20px;
         font-size: 0.9em;
     }
 
-    .hero-section {
-        height: 80vh; /* Reduce la altura del hero en móviles */
-        margin-top: 0; /* El header se superpone si es pequeño */
-    }
-    .hero-overlay {
-        padding: 30px 15px;
-        border-radius: 8px;
-    }
-    .hero-section h2 {
-        font-size: 2.2em;
-    }
-    .hero-section p {
-        font-size: 1em;
-    }
-    .hero-services-list li {
-        font-size: 0.85em;
-        padding: 6px 10px;
-    }
-    .hero-cta {
-        padding: 12px 25px;
-        font-size: 0.95em;
-    }
-
     h2 {
-        font-size: 2em; /* Títulos de sección más pequeños */
+        font-size: 1.8em; /* Títulos de sección más pequeños */
     }
     .section-description {
         font-size: 0.95em;
     }
 
-    .service-item, .advantage-item, .contact-info, .contact-form {
-        padding: 20px; /* Menos padding en los cards */
+    .areas-servicio-section .area-item,
+    .service-item,
+    .advantage-item,
+    .contact-info, .contact-form {
+        padding: 20px; /* Reduce el padding en elementos en móviles */
     }
 
-    .service-item h3, .contact-info h3, .contact-form h3 {
-        font-size: 1.5em; /* Títulos de subsección más pequeños */
+    .areas-servicio-section .area-item i {
+        font-size: 2.8em; /* Ajusta el tamaño de los iconos en móviles */
+    }
+
+    .why-choose-us-section .advantage-item i {
+        font-size: 2.5em; /* Ajusta el tamaño de los iconos en móviles */
+    }
+
+    .social-icon {
+        width: 40px; /* Iconos sociales más pequeños en móviles */
+        height: 40px;
+        font-size: 1.2em;
     }
 }
