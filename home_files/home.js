@@ -1,30 +1,34 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Elementos del menú para la funcionalidad de hamburguesa
     const menuToggle = document.querySelector('.menu-toggle');
     const mainNav = document.querySelector('.main-nav');
     const mainNavLinks = document.querySelectorAll('.main-nav ul li a');
 
-    // Funcionalidad para el menú de hamburguesa
-    if (menuToggle && mainNav) { // Asegurarse de que los elementos existan
-        menuToggle.addEventListener('click', () => {
-            mainNav.classList.toggle('open');
-            menuToggle.classList.toggle('open');
-        });
+    // Función para alternar el menú
+    const toggleMenu = () => {
+        mainNav.classList.toggle('open');
+        menuToggle.classList.toggle('open');
+        
+        // Cambiar icono entre hamburguesa y X
+        const icon = menuToggle.querySelector('i');
+        if (mainNav.classList.contains('open')) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-times');
+        } else {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+    };
+
+    if (menuToggle && mainNav) {
+        menuToggle.addEventListener('click', toggleMenu);
     }
 
-    // Cerrar el menú cuando se hace clic en un enlace (para mejorar la UX móvil)
+    // Cerrar menú al hacer clic en un enlace
     mainNavLinks.forEach(link => {
         link.addEventListener('click', () => {
-            if (mainNav && mainNav.classList.contains('open')) {
-                mainNav.classList.remove('open');
-                if (menuToggle) {
-                    menuToggle.classList.remove('open');
-                }
+            if (mainNav.classList.contains('open')) {
+                toggleMenu();
             }
         });
     });
-
-    // --- Toda la lógica del carrusel de hero ha sido eliminada de aquí ---
-    // No hay necesidad de manejar la animación de texto o imágenes
-    // ya que el hero ahora es estático con una imagen de fondo fija.
 });

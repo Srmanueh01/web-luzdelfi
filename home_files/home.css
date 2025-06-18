@@ -3,29 +3,29 @@
 
 /* --- Estilos Generales y Reset Básico --- */
 body {
-    font-family: 'Roboto', sans-serif; /* Fuente principal para el cuerpo del texto */
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    color: #333; /* Color de texto principal */
-    line-height: 1.6; /* Altura de línea para mejor legibilidad */
-    background-color: #f8f8f8; /* Fondo general sutil */
-    overflow-x: hidden; /* Evita el scroll horizontal en exceso */
+    color: #333;
+    line-height: 1.6;
+    background-color: #f8f8f8;
+    overflow-x: hidden;
 }
 
 *, *::before, *::after {
-    box-sizing: inherit; /* Asegura que padding y border no aumenten el tamaño total */
+    box-sizing: inherit;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 25px; /* Más padding en los lados para respiro */
+    padding: 0 25px;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', sans-serif; /* Fuente para los títulos */
-    color: #2c3e50; /* Color de títulos */
+    font-family: 'Montserrat', sans-serif;
+    color: #2c3e50;
     margin-top: 0;
     margin-bottom: 20px;
 }
@@ -36,16 +36,16 @@ p {
 
 a {
     text-decoration: none;
-    color: #3498db; /* Color de enlace principal */
+    color: #3498db;
     transition: color 0.3s ease;
 }
 
 a:hover {
-    color: #2980b9; /* Tono más oscuro al pasar el ratón */
+    color: #2980b9;
 }
 
 ul {
-    list-style: none; /* Quita los puntos de la lista */
+    list-style: none;
     padding: 0;
     margin: 0;
 }
@@ -55,11 +55,11 @@ ul {
     background-color: #ffffff;
     padding: 15px 0;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    position: sticky; /* Sticky header */
+    position: sticky;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    z-index: 1000;
 }
 
 .main-header .container {
@@ -69,13 +69,19 @@ ul {
 }
 
 .main-header .logo img {
-    height: 50px; /* Tamaño del logo */
-    vertical-align: middle; /* Alinea la imagen */
+    height: 50px;
+    vertical-align: middle;
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    position: relative;
 }
 
 .main-nav ul {
     display: flex;
-    gap: 30px; /* Espacio entre elementos del menú */
+    gap: 30px;
 }
 
 .main-nav ul li a {
@@ -83,7 +89,7 @@ ul {
     font-weight: 500;
     font-size: 1.1em;
     padding: 5px 0;
-    position: relative; /* Para el efecto de subrayado */
+    position: relative;
 }
 
 .main-nav ul li a::after {
@@ -101,91 +107,69 @@ ul {
     width: 100%;
 }
 
-/* Botón CTA general */
+.main-nav ul li a:hover {
+    color: #3498db;
+}
+
 .cta-button {
     background-color: #3498db;
-    color: #ffffff;
+    color: white;
     padding: 12px 25px;
     border: none;
     border-radius: 5px;
-    font-size: 1em;
-    font-weight: 700;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    white-space: nowrap; /* Evita que el texto se rompa */
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-left: 20px;
 }
 
 .cta-button:hover {
     background-color: #2980b9;
-    transform: translateY(-2px); /* Pequeño efecto de elevación */
 }
 
-/* Menú de hamburguesa (oculto por defecto en desktop) */
+/* Estilos para el botón de hamburguesa */
 .menu-toggle {
-    display: none; /* Oculto por defecto en desktop */
-    flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 20px;
-    background: transparent;
+    display: none;
+    background: none;
     border: none;
     cursor: pointer;
-    padding: 0;
-    z-index: 1001; /* Asegura que esté por encima del menú */
+    padding: 10px;
+    font-size: 1.8em;
+    color: #333;
+    z-index: 1001;
 }
 
-.menu-toggle span {
-    display: block;
-    width: 100%;
-    height: 2px;
-    background-color: #333;
-    transition: all 0.3s ease;
-    border-radius: 2px;
-}
-
-/* Animación para el botón de hamburguesa cuando está abierto */
-.menu-toggle.open span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-}
-
-.menu-toggle.open span:nth-child(2) {
-    opacity: 0;
-}
-
-.menu-toggle.open span:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
-}
-
-/* --- Sección Hero (Estática) --- */
+/* --- Hero Section --- */
 .hero-section {
+    background: url('imgs/fondo_home.jpg') no-repeat center center/cover;
+    color: white;
+    text-align: center;
+    padding: 100px 0;
     position: relative;
-    width: 100%;
-    min-height: 95vh; /* Altura mínima para asegurar visibilidad */
-    background: url('imgs/fondo_home.jpg') no-repeat center center/cover; /* Imagen de fondo estática */
+    overflow: hidden;
+    min-height: 95vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    color: #ffffff;
-    padding: 50px 0; /* Padding para asegurar espacio */
 }
 
 .hero-overlay {
-    background-color: rgba(0, 0, 0, 0.6); /* Capa oscura semitransparente */
+    background-color: rgba(0, 0, 0, 0.6);
     padding: 40px;
     border-radius: 10px;
     max-width: 800px;
-    width: 90%; /* Ajuste de ancho para responsividad */
+    width: 90%;
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    animation: fadeIn 1s ease-out forwards; /* Animación de entrada */
+    animation: fadeIn 1s ease-out forwards;
 }
 
 .hero-title {
     font-size: 3.5em;
     margin-bottom: 20px;
-    font-weight: 700;
-    color: #ffffff; /* Títulos en blanco para contraste */
     line-height: 1.2;
+    font-weight: 700;
+    color: #ffffff;
 }
 
 .hero-subtitle {
@@ -196,37 +180,37 @@ ul {
 
 .hero-buttons {
     display: flex;
+    gap: 20px;
     justify-content: center;
-    gap: 20px; /* Espacio entre los botones */
-    flex-wrap: wrap; /* Permite que los botones se envuelvan en pantallas pequeñas */
+    flex-wrap: wrap;
 }
 
 .hero-cta-main {
-    background-color: #27ae60; /* Verde vibrante */
-    color: #ffffff;
+    background-color: #27ae60;
+    color: white;
     padding: 15px 30px;
     border-radius: 5px;
-    font-weight: 700;
     font-size: 1.1em;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    display: inline-block; /* Para que padding y transform funcionen bien */
-}
-
-.hero-cta-main:hover {
-    background-color: #2ecc71; /* Tono más claro de verde */
-    transform: translateY(-3px);
+    font-weight: bold;
+    display: inline-block;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .hero-cta-secondary {
     background-color: transparent;
-    color: #ffffff;
+    color: white;
     padding: 15px 30px;
-    border: 2px solid #ffffff; /* Borde blanco */
+    border: 2px solid white;
     border-radius: 5px;
-    font-weight: 700;
     font-size: 1.1em;
-    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    font-weight: bold;
     display: inline-block;
+    transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
+}
+
+.hero-cta-main:hover {
+    background-color: #2ecc71;
+    transform: translateY(-3px);
 }
 
 .hero-cta-secondary:hover {
@@ -235,7 +219,6 @@ ul {
     transform: translateY(-3px);
 }
 
-/* Animación de entrada para el overlay */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -247,8 +230,7 @@ ul {
     }
 }
 
-
-/* --- SECCIÓN DE ÁREAS DE SERVICIO (áreas-servicio-section) --- */
+/* --- Áreas de Servicio Section --- */
 .areas-servicio-section {
     padding: 80px 0;
     background-color: #f8f8f8;
@@ -258,6 +240,12 @@ ul {
 .areas-servicio-section h2 {
     font-size: 2.8em;
     margin-bottom: 15px;
+}
+
+.areas-servicio-section .section-description {
+    font-size: 1.1em;
+    color: #777;
+    margin-bottom: 40px;
 }
 
 .areas-grid {
@@ -284,17 +272,14 @@ ul {
 .areas-servicio-section .area-item i {
     font-size: 3.5em;
     margin-bottom: 15px;
-    /* Eliminamos 'color' genérico de aquí */
 }
 
-/* Nuevos estilos de color para iconos de servicios */
-.icon-control-accesos { color: #2c3e50; } /* Gris oscuro/azul para seguridad */
-.icon-limpieza-hoteles { color: #3498db; } /* Azul limpio para hoteles */
-.icon-limpieza-colegios { color: #27ae60; } /* Verde para salud y educación */
-.icon-comunidades-oficinas { color: #8e44ad; } /* Púrpura para organización */
-.icon-eventos-congresos { color: #e67e22; } /* Naranja vibrante para eventos */
-.icon-servicios-auxiliares { color: #f1c40f; } /* Amarillo/Oro para apoyo */
-
+.icon-control-accesos { color: #2c3e50; }
+.icon-limpieza-hoteles { color: #3498db; }
+.icon-limpieza-colegios { color: #27ae60; }
+.icon-comunidades-oficinas { color: #8e44ad; }
+.icon-eventos-congresos { color: #e67e22; }
+.icon-servicios-auxiliares { color: #f1c40f; }
 
 .area-item h3 {
     font-size: 1.5em;
@@ -307,17 +292,22 @@ ul {
     color: #666;
 }
 
-
-/* --- SECCIÓN DE SERVICIOS SECUNDARIA (servicios-secundaria) --- */
+/* --- Services Section --- */
 .services-section {
-    padding: 80px 0;
     background-color: #ecf0f1;
+    padding: 80px 0;
     text-align: center;
 }
 
 .services-section h2 {
     font-size: 2.8em;
     margin-bottom: 15px;
+}
+
+.services-section .section-description {
+    font-size: 1.1em;
+    color: #777;
+    margin-bottom: 40px;
 }
 
 .services-grid {
@@ -332,8 +322,8 @@ ul {
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    text-align: left;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
 }
 
 .service-item:hover {
@@ -343,58 +333,57 @@ ul {
 
 .service-item h3 {
     font-size: 1.6em;
-    color: #34495e;
     margin-bottom: 15px;
+    color: #34495e;
+}
+
+.service-item p {
+    color: #666;
+    margin-bottom: 20px;
 }
 
 .service-item ul {
-    list-style: none; /* Elimina los puntos predeterminados */
+    list-style: none;
     padding-left: 0;
 }
 
 .service-item ul li {
     position: relative;
-    padding-left: 25px; /* Espacio para el icono personalizado */
+    padding-left: 25px;
     margin-bottom: 10px;
     font-size: 1em;
     color: #555;
 }
 
 .service-item ul li::before {
-    content: '\2713'; /* Unicode para un tick (✓) */
-    font-family: 'Font Awesome 5 Free'; /* Asegura que Font Awesome pueda renderizarlo */
-    font-weight: 900; /* Para el estilo sólido de Font Awesome si usas la v5 */
+    content: '\2713';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
     position: absolute;
     left: 0;
-    color: #27ae60; /* Color verde para el tick */
+    color: #27ae60;
     font-size: 0.9em;
     top: 50%;
     transform: translateY(-50%);
 }
 
-.service-item p {
-    font-size: 1em;
-    color: #666;
-    margin-bottom: 20px;
-}
-
-
-/* --- SECCIÓN SOBRE NOSOTROS (about-section) --- */
+/* --- About Section --- */
 .about-section {
     padding: 80px 0;
     background-color: #ffffff;
 }
 
-.about-content {
+.about-section .container {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 50px;
-    flex-wrap: wrap; /* Permite que los elementos se envuelvan */
+    flex-wrap: wrap;
 }
 
-.about-text {
-    flex: 1; /* Ocupa el espacio restante */
-    min-width: 300px; /* Ancho mínimo para el texto */
+.about-content {
+    flex: 1;
+    min-width: 300px;
 }
 
 .about-text h2 {
@@ -403,15 +392,15 @@ ul {
 }
 
 .about-text p {
-    font-size: 1.1em;
     color: #555;
     margin-bottom: 20px;
+    font-size: 1.1em;
 }
 
 .about-image {
     flex: 1;
-    min-width: 300px; /* Ancho mínimo para la imagen */
-    text-align: center; /* Centra la imagen si es más pequeña */
+    min-width: 300px;
+    text-align: center;
 }
 
 .about-image img {
@@ -421,7 +410,7 @@ ul {
     box-shadow: 0 5px 20px rgba(0,0,0,0.1);
 }
 
-/* --- SECCIÓN POR QUÉ ELEGIRNOS (why-choose-us-section) --- */
+/* --- Why Choose Us Section --- */
 .why-choose-us-section {
     padding: 80px 0;
     background-color: #f2f6f9;
@@ -431,6 +420,12 @@ ul {
 .why-choose-us-section h2 {
     font-size: 2.8em;
     margin-bottom: 15px;
+}
+
+.why-choose-us-section .section-description {
+    font-size: 1.1em;
+    color: #777;
+    margin-bottom: 40px;
 }
 
 .advantages-grid {
@@ -457,14 +452,12 @@ ul {
 .why-choose-us-section .advantage-item i {
     font-size: 3em;
     margin-bottom: 20px;
-    /* Eliminamos 'color' genérico de aquí */
 }
 
-/* Nuevos estilos de color para iconos de ventajas */
-.icon-ventaja-seguridad { color: #34495e; } /* Azul oscuro/gris para seguridad */
-.icon-ventaja-profesionalidad { color: #f39c12; } /* Naranja/Oro para profesionalidad */
-.icon-ventaja-limpieza { color: #1abc9c; } /* Turquesa/Verde para limpieza */
-.icon-ventaja-atencion { color: #c0392b; } /* Rojo oscuro para atención */
+.icon-ventaja-seguridad { color: #34495e; }
+.icon-ventaja-profesionalidad { color: #f39c12; }
+.icon-ventaja-limpieza { color: #1abc9c; }
+.icon-ventaja-atencion { color: #c0392b; }
 
 .advantage-item h3 {
     font-size: 1.4em;
@@ -477,11 +470,10 @@ ul {
     color: #666;
 }
 
-
-/* --- SECCIÓN DE CONTACTO (contact-section) --- */
+/* --- Contact Section --- */
 .contact-section {
     padding: 80px 0;
-    background-color: #34495e; /* Fondo oscuro para contraste */
+    background-color: #34495e;
     color: #ffffff;
     text-align: center;
 }
@@ -492,19 +484,25 @@ ul {
     color: #ffffff;
 }
 
+.contact-section .section-description {
+    font-size: 1.1em;
+    color: #777;
+    margin-bottom: 40px;
+}
+
 .contact-content {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     gap: 50px;
+    justify-content: center;
     margin-top: 40px;
 }
 
 .contact-info, .contact-form {
     flex: 1;
     min-width: 300px;
-    max-width: 500px; /* Limitar ancho para que no sean demasiado grandes */
-    background-color: rgba(255, 255, 255, 0.1); /* Fondo semitransparente */
+    max-width: 500px;
+    background-color: rgba(255, 255, 255, 0.1);
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
@@ -524,57 +522,59 @@ ul {
 }
 
 .contact-info p strong {
-    color: #2ecc71; /* Un color de acento para la información importante */
+    color: #2ecc71;
 }
 
 .contact-info a {
-    color: #2ecc71; /* Color de enlace para teléfono/email */
+    color: #2ecc71;
 }
 
 .social-links {
     margin-top: 30px;
     display: flex;
     gap: 20px;
-    justify-content: center; /* Centrar los iconos sociales */
+    justify-content: center;
 }
 
 .social-icon {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: #2c3e50; /* Fondo de los iconos sociales */
+    background-color: #2c3e50;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 1.5em;
-    color: #ffffff; /* Color de texto predeterminado para los iconos */
+    color: #ffffff;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-/* Colores específicos para iconos de redes sociales */
-.social-icon .icon-facebook { color: #3b5998; } /* Azul Facebook */
-.social-icon .icon-instagram { color: #C13584; } /* Morado Instagram */
-.social-icon .icon-linkedin { color: #007bb5; } /* Azul LinkedIn */
-
+.social-icon .icon-facebook { color: #3b5998; }
+.social-icon .icon-instagram { color: #C13584; }
+.social-icon .icon-linkedin { color: #007bb5; }
 
 .social-icon:hover {
-    background-color: #3498db; /* Cambia el fondo al pasar el ratón */
+    background-color: #3498db;
     transform: translateY(-3px);
 }
 
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
 
 .contact-form input[type="text"],
 .contact-form input[type="email"],
 .contact-form textarea {
     width: 100%;
     padding: 15px;
-    margin-bottom: 20px;
     border: none;
     border-radius: 5px;
-    background-color: rgba(255, 255, 255, 0.9); /* Fondo ligeramente transparente para los campos */
+    background-color: rgba(255, 255, 255, 0.9);
     color: #333;
     font-size: 1em;
-    box-sizing: border-box; /* Incluye padding en el ancho */
+    box-sizing: border-box;
 }
 
 .contact-form input[type="text"]::placeholder,
@@ -584,65 +584,231 @@ ul {
 }
 
 .contact-form textarea {
-    resize: vertical; /* Permite redimensionar verticalmente */
+    resize: vertical;
     min-height: 120px;
 }
 
 .contact-form .cta-button {
-    width: 100%; /* El botón ocupa todo el ancho */
+    width: 100%;
     padding: 15px;
     font-size: 1.1em;
 }
 
-/* --- Pie de Página (Footer) --- */
+/* --- Footer --- */
 .main-footer {
     background-color: #2c3e50;
     color: #ffffff;
-    text-align: center;
-    padding: 30px 0;
+    padding: 60px 0 30px;
     font-size: 0.9em;
+}
+
+.main-footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    width: 100%;
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.footer-col {
+    padding: 10px;
+}
+
+.footer-col h4 {
+    color: #ffffff;
+    font-size: 1.4em;
+    margin-bottom: 25px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-col h4::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 3px;
+    background-color: #3498db;
+}
+
+.footer-col p {
+    color: #cccccc;
+    margin-bottom: 15px;
+    line-height: 1.7;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    color: #cccccc;
+    transition: color 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+    color: #3498db;
+}
+
+.footer-col.contact-details p {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.footer-col.contact-details i {
+    font-size: 1.2em;
+    color: #3498db;
+    margin-top: 3px;
+}
+
+.footer-social-links {
+    margin-top: 25px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.footer-social-links .social-icon {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2em;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.footer-social-links .social-icon:hover {
+    background-color: #3498db;
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    text-align: center;
+    width: 100%;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom p {
+    margin: 0;
+    color: #999999;
+}
+
+/* --- Botón flotante "Trabaja con nosotros!" --- */
+.trabaja-con-nosotros {
+    position: fixed;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%) rotate(-90deg);
+    transform-origin: 100% 50%;
+    background-color: #f39c12;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    white-space: nowrap;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.trabaja-con-nosotros:hover {
+    background-color: #e67e22;
+    transform: translateY(-50%) rotate(-90deg) scale(1.05);
+    transform-origin: 100% 50%;
+}
+
+.trabaja-con-nosotros i {
+    margin-right: 5px;
 }
 
 /* --- Media Queries para Responsividad --- */
 
-/* Para tablets y pantallas medianas */
+/* Para tablets y pantallas medianas (hasta 992px) */
 @media (max-width: 992px) {
+    .main-header .container {
+        justify-content: space-between;
+        position: relative;
+    }
+    
     .main-nav {
-        display: none; /* Oculta la navegación principal */
+        order: 2;
+    }
+    
+    .main-nav ul {
+        display: none;
         flex-direction: column;
         position: absolute;
-        top: 80px; /* Debajo del header */
+        top: 100%;
         left: 0;
         width: 100%;
         background-color: #ffffff;
         box-shadow: 0 4px 5px rgba(0,0,0,0.1);
         padding: 20px 0;
-        transform: translateY(-100%); /* Oculto arriba */
+        transform: translateY(-100%);
         transition: transform 0.3s ease-out;
         z-index: 999;
     }
 
-    .main-nav.open {
-        transform: translateY(0); /* Visible */
+    .main-nav ul.open {
+        transform: translateY(0);
+        display: flex;
     }
 
-    .main-nav ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
+    .main-nav ul li {
+        margin: 0;
+        padding: 15px 25px;
+        border-bottom: 1px solid #eee;
+        text-align: center;
+    }
+
+    .main-nav ul li:last-child {
+        border-bottom: none;
     }
 
     .main-nav ul li a {
         font-size: 1.2em;
         padding: 10px 0;
+        width: 100%;
+        display: block;
+    }
+
+    .main-nav ul li a::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .main-nav ul li a:hover::after {
+        width: 80%;
+    }
+
+    .cta-button {
+        display: none;
     }
 
     .menu-toggle {
-        display: flex; /* Muestra el botón de hamburguesa */
-    }
-
-    .main-header .cta-button {
-        display: none; /* Oculta el botón CTA en el header si el menú es hamburguesa */
+        display: block;
+        order: 1;
+        margin-left: auto;
     }
 
     .hero-title {
@@ -654,28 +820,50 @@ ul {
     }
 
     .areas-grid, .services-grid, .advantages-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Ajuste para tablets */
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
 
-    .about-content {
-        flex-direction: column; /* Apila el contenido en tablets */
+    .about-section .container {
+        flex-direction: column;
         text-align: center;
     }
 
     .about-image {
-        order: -1; /* Mueve la imagen arriba en móviles/tablets */
+        order: -1;
         margin-bottom: 30px;
     }
 
     .contact-content {
         flex-direction: column;
     }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .footer-col h4::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .footer-social-links {
+        justify-content: center;
+    }
+
+    .footer-col.contact-details p {
+        justify-content: center;
+    }
 }
 
-/* Para pantallas muy pequeñas (móviles) */
+/* Para pantallas muy pequeñas (móviles, hasta 576px) */
 @media (max-width: 576px) {
     .main-header {
         padding: 10px 0;
+    }
+
+    .main-header .container {
+        padding: 0 15px;
     }
 
     .main-header .logo img {
@@ -683,11 +871,11 @@ ul {
     }
 
     .hero-section {
-        min-height: calc(100vh - 60px); /* Asegura que siga ocupando la altura correcta */
+        min-height: calc(100vh - 60px);
     }
 
     .hero-overlay {
-        padding: 35px 10px 55px 10px; /* Ajustado el padding para móviles (de 25px a 35px arriba y de 40px a 55px abajo) */
+        padding: 35px 10px 55px 10px;
         border-radius: 8px;
     }
     .hero-title {
@@ -704,7 +892,7 @@ ul {
     }
 
     h2 {
-        font-size: 1.8em; /* Títulos de sección más pequeños */
+        font-size: 1.8em;
     }
     .section-description {
         font-size: 0.95em;
@@ -714,20 +902,38 @@ ul {
     .service-item,
     .advantage-item,
     .contact-info, .contact-form {
-        padding: 20px; /* Reduce el padding en elementos en móviles */
+        padding: 20px;
     }
 
     .areas-servicio-section .area-item i {
-        font-size: 2.8em; /* Ajusta el tamaño de los iconos en móviles */
+        font-size: 2.8em;
     }
 
     .why-choose-us-section .advantage-item i {
-        font-size: 2.5em; /* Ajusta el tamaño de los iconos en móviles */
+        font-size: 2.5em;
     }
 
     .social-icon {
-        width: 40px; /* Iconos sociales más pequeños en móviles */
+        width: 40px;
         height: 40px;
         font-size: 1.2em;
+    }
+
+    .trabaja-con-nosotros {
+        display: block;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        top: auto;
+        transform: none;
+        transform-origin: center;
+        white-space: nowrap;
+        font-size: 0.9em;
+        padding: 10px 15px;
+    }
+
+    .trabaja-con-nosotros:hover {
+        transform: scale(1.05);
+        background-color: #e67e22;
     }
 }
