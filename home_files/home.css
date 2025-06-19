@@ -20,7 +20,7 @@ body {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 25px;
+    padding: 0 40px; /* Aumentado de 25px a 40px */
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -64,8 +64,25 @@ ul {
 
 .main-header .container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Mantiene el logo a la izquierda y la navegación a la derecha */
     align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacio reducido entre la imagen del logo y el texto */
+    /* 'margin-right: auto;' y 'padding-left: 20px;' eliminados.
+       'justify-content: space-between;' en el contenedor padre ya se encarga de la separación,
+       y el padding global del '.container' es suficiente. */
+}
+
+.logo-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.2em; /* Mantenido el tamaño actual del texto del logo */
+    color: #2c3e50;
+    white-space: nowrap; /* Evita que el texto del logo se rompa en varias líneas */
 }
 
 .main-header .logo img {
@@ -77,19 +94,21 @@ ul {
     display: flex;
     align-items: center;
     position: relative;
+    /* 'margin-left: auto;' y 'padding-right: 20px;' eliminados por las mismas razones que en .logo */
 }
 
 .main-nav ul {
     display: flex;
-    gap: 30px;
+    gap: 20px; /* Reducido de 30px para un menú más compacto horizontalmente */
 }
 
 .main-nav ul li a {
     color: #555;
     font-weight: 500;
-    font-size: 1.1em;
+    font-size: 1em; /* Reducido de 1.1em para que las letras sean menos grandes */
     padding: 5px 0;
     position: relative;
+    white-space: nowrap; /* Evita que los enlaces de navegación se rompan en varias líneas */
 }
 
 .main-nav ul li a::after {
@@ -751,13 +770,22 @@ ul {
 
 /* Para tablets y pantallas medianas (hasta 992px) */
 @media (max-width: 992px) {
+    .container {
+        padding: 0 20px;
+    }
+    
     .main-header .container {
         justify-content: space-between;
         position: relative;
     }
     
+    .logo {
+        padding-left: 0; /* Asegura que el padding sea manejado por el .container principal */
+        gap: 10px;
+    }
+    
     .main-nav {
-        order: 2;
+        padding-right: 0; /* Asegura que el padding sea manejado por el .container principal */
     }
     
     .main-nav ul {
@@ -775,6 +803,7 @@ ul {
         transition: all 0.3s ease;
         transform: translateY(-20px);
         z-index: 998;
+        gap: 0; /* Asegura que no haya un gap extra en el menú móvil cuando está apilado */
     }
     
     .main-nav ul.open {
@@ -879,6 +908,10 @@ ul {
         height: 40px;
     }
     
+    .logo-text {
+        font-size: 1em; /* Ajuste para móviles */
+    }
+    
     .main-nav ul {
         top: 70px;
     }
@@ -950,7 +983,7 @@ ul {
     }
     
     .trabaja-con-nosotros:hover {
-        transform: scale(1.05);
         background-color: #e67e22;
+        transform: scale(1.05);
     }
 }
