@@ -138,6 +138,11 @@ ul {
     font-size: 1.8em;
     color: #333;
     z-index: 1001;
+    transition: transform 0.3s ease;
+}
+
+.menu-toggle.open {
+    transform: rotate(90deg);
 }
 
 /* --- Hero Section --- */
@@ -756,101 +761,105 @@ ul {
     }
     
     .main-nav ul {
-        display: none;
+        display: flex;
         flex-direction: column;
-        position: absolute;
-        top: 100%;
+        position: fixed;
+        top: 80px;
         left: 0;
         width: 100%;
         background-color: #ffffff;
         box-shadow: 0 4px 5px rgba(0,0,0,0.1);
         padding: 20px 0;
-        transform: translateY(-100%);
-        transition: transform 0.3s ease-out;
-        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        transform: translateY(-20px);
+        z-index: 998;
     }
-
+    
     .main-nav ul.open {
+        opacity: 1;
+        visibility: visible;
         transform: translateY(0);
-        display: flex;
     }
-
+    
     .main-nav ul li {
         margin: 0;
         padding: 15px 25px;
         border-bottom: 1px solid #eee;
         text-align: center;
     }
-
+    
     .main-nav ul li:last-child {
         border-bottom: none;
     }
-
+    
     .main-nav ul li a {
         font-size: 1.2em;
         padding: 10px 0;
         width: 100%;
         display: block;
     }
-
+    
     .main-nav ul li a::after {
         left: 50%;
         transform: translateX(-50%);
     }
+    
     .main-nav ul li a:hover::after {
         width: 80%;
     }
-
+    
     .cta-button {
         display: none;
     }
-
+    
     .menu-toggle {
         display: block;
         order: 1;
         margin-left: auto;
     }
-
+    
     .hero-title {
         font-size: 2.8em;
     }
-
+    
     .hero-subtitle {
         font-size: 1.1em;
     }
-
+    
     .areas-grid, .services-grid, .advantages-grid {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
-
+    
     .about-section .container {
         flex-direction: column;
         text-align: center;
     }
-
+    
     .about-image {
         order: -1;
         margin-bottom: 30px;
     }
-
+    
     .contact-content {
         flex-direction: column;
     }
-
+    
     .footer-grid {
         grid-template-columns: 1fr;
         text-align: center;
     }
-
+    
     .footer-col h4::after {
         left: 50%;
         transform: translateX(-50%);
     }
-
+    
     .footer-social-links {
         justify-content: center;
     }
-
+    
     .footer-col.contact-details p {
         justify-content: center;
     }
@@ -861,64 +870,72 @@ ul {
     .main-header {
         padding: 10px 0;
     }
-
+    
     .main-header .container {
         padding: 0 15px;
     }
-
+    
     .main-header .logo img {
         height: 40px;
     }
-
+    
+    .main-nav ul {
+        top: 70px;
+    }
+    
     .hero-section {
         min-height: calc(100vh - 60px);
     }
-
+    
     .hero-overlay {
         padding: 35px 10px 55px 10px;
         border-radius: 8px;
     }
+    
     .hero-title {
         font-size: 1.8em;
         margin-bottom: 10px;
     }
+    
     .hero-subtitle {
         font-size: 0.9em;
         margin-bottom: 20px;
     }
+    
     .hero-cta-main, .hero-cta-secondary {
         padding: 10px 20px;
         font-size: 0.9em;
     }
-
+    
     h2 {
         font-size: 1.8em;
     }
+    
     .section-description {
         font-size: 0.95em;
     }
-
+    
     .areas-servicio-section .area-item,
     .service-item,
     .advantage-item,
     .contact-info, .contact-form {
         padding: 20px;
     }
-
+    
     .areas-servicio-section .area-item i {
         font-size: 2.8em;
     }
-
+    
     .why-choose-us-section .advantage-item i {
         font-size: 2.5em;
     }
-
+    
     .social-icon {
         width: 40px;
         height: 40px;
         font-size: 1.2em;
     }
-
+    
     .trabaja-con-nosotros {
         display: block;
         position: fixed;
@@ -931,7 +948,7 @@ ul {
         font-size: 0.9em;
         padding: 10px 15px;
     }
-
+    
     .trabaja-con-nosotros:hover {
         transform: scale(1.05);
         background-color: #e67e22;
