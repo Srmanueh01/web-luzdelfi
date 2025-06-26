@@ -8,7 +8,7 @@ body {
     padding: 0;
     box-sizing: border-box;
     color: #333;
-    line-height: 1.6;
+    line-height: 1.7; /* Ligeramente más espacio entre líneas para mejor lectura */
     background-color: #f8f8f8;
     overflow-x: hidden;
 }
@@ -54,7 +54,7 @@ ul {
 .main-header {
     background-color: #ffffff;
     padding: 15px 0;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15); /* Sombra más pronunciada para mayor definición */
     position: sticky;
     top: 0;
     left: 0;
@@ -116,12 +116,13 @@ ul {
 }
 
 .main-nav ul li a {
-    color: #555;
-    font-weight: 500;
+    color: #2c3e50; /* Más oscuro para mayor contraste */
+    font-weight: 600; /* Mayor peso para que resalten */
     font-size: 1em;
     padding: 5px 0;
     position: relative;
     white-space: nowrap;
+    transition: color 0.3s ease, transform 0.3s ease; /* Añadido transform a la transición */
 }
 
 .main-nav ul li a::after {
@@ -141,6 +142,7 @@ ul {
 
 .main-nav ul li a:hover {
     color: #3498db;
+    transform: translateY(-2px); /* Nuevo: sutil elevación al pasar el ratón */
 }
 
 .cta-button {
@@ -178,56 +180,103 @@ ul {
 }
 
 /* --- Hero Section --- */
+/* --- Hero Section --- */
 .hero-section {
     background: url('imgs/fondo_home.jpg') no-repeat center center/cover;
     color: white;
     text-align: center;
-    padding: 100px 0;
+    /* Ajustado el padding para reducir el espacio vertical */
+    padding: 40px 0;
     position: relative;
     overflow: hidden;
-    min-height: 95vh;
+    /* Mantener min-height para asegurar que la sección es visible, pero el padding la controla mejor */
+    min-height: 95vh; 
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: center; /* Asegura el centrado vertical del contenido */
+    justify-content: center; /* Asegura el centrado horizontal del contenido */
+    /* Efecto Parallax - el fondo se mueve más lento que el contenido */
+    background-attachment: fixed;
 }
 
+/* Capa de color sobre la imagen de fondo para mejorar contraste */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Degradado sutil para la capa sobre la imagen: de un azul oscuro transparente a un gris oscuro transparente */
+    background: linear-gradient(rgba(44, 62, 80, 0.75), rgba(52, 73, 94, 0.75)); /* Aumentado la opacidad */
+    z-index: 1;
+}
+
+/* --- REDISEÑO COMPLETO DE LA CAJA CENTRAL DEL HERO --- */
 .hero-overlay {
-    background-color: rgba(0, 0, 0, 0.6);
-    padding: 40px;
-    border-radius: 10px;
-    max-width: 800px;
-    width: 90%;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    animation: fadeIn 1s ease-out forwards;
+    background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.12));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    padding: 50px;
+    max-width: 900px;
+    width: 95%; /* Modificado de 90% a 95% */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+    animation: fadeInScale 1.2s ease-out forwards;
+    z-index: 2;
+    position: relative;
+    text-align: center;
 }
 
 .hero-title {
-    font-size: 3.5em;
+    font-size: 3.2em;
     margin-bottom: 20px;
-    line-height: 1.2;
+    line-height: 1.3;
     font-weight: 700;
     color: #ffffff;
+    animation: slideInFromTop 1s ease-out 0.3s forwards;
+    opacity: 0;
 }
 
 .hero-subtitle {
-    font-size: 1.3em;
+    font-size: 1.2em;
     margin-bottom: 30px;
     color: #f0f0f0;
+    animation: slideInFromBottom 1s ease-out 0.6s forwards;
+    opacity: 0;
 }
 
-/* ESTILOS PARA EL LEMA "VELAR POR LA TRANQUILIDAD DE CLIENTE" */
-.slogan-text {
-    display: block; /* Asegura que el lema esté en su propia línea */
-    margin-top: 25px; /* Espacio por encima del lema para separarlo del subtítulo */
-    margin-bottom: 15px; /* Espacio por debajo del lema para separarlo de los botones */
-    font-family: 'Montserrat', sans-serif; /* Puedes usar la misma fuente de los títulos */
-    font-size: 1.6em; /* Un tamaño de fuente mayor para que destaque */
-    font-weight: 700; /* Negrita para mayor énfasis */
-    color: #ffffff; /* Color blanco puro para contraste con el fondo oscuro del hero */
-    text-transform: uppercase; /* Opcional: para que todo el texto esté en mayúsculas */
-    letter-spacing: 1.5px; /* Opcional: ligeramente más espaciado entre letras */
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* Sombra de texto suave para mejor legibilidad */
-    line-height: 1.3; /* Espaciado de línea si el texto se divide en varias líneas */
+/* Estilo para el texto de experiencia */
+.experience-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.25em;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.4;
+    margin-top: 15px;
+    margin-bottom: 40px;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    opacity: 0;
+    animation: fadeInText 1s ease-out 0.9s forwards;
+}
+
+/* Nueva clase para la frase completa */
+.experience-phrase {
+    white-space: nowrap;
+}
+
+.experience-text strong {
+    color: #2ecc71;
+}
+
+.experience-text i {
+    color: #f1c40f;
+    font-size: 1.3em;
+    flex-shrink: 0;
 }
 
 .hero-buttons {
@@ -235,6 +284,9 @@ ul {
     gap: 20px;
     justify-content: center;
     flex-wrap: wrap;
+    margin-top: 0;
+    animation: slideInFromBottom 1s ease-out 1.5s forwards;
+    opacity: 0;
 }
 
 .hero-cta-main {
@@ -245,7 +297,8 @@ ul {
     font-size: 1.1em;
     font-weight: bold;
     display: inline-block;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 .hero-cta-secondary {
@@ -257,30 +310,66 @@ ul {
     font-size: 1.1em;
     font-weight: bold;
     display: inline-block;
-    transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 .hero-cta-main:hover {
     background-color: #2ecc71;
-    transform: translateY(-3px);
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
 }
 
 .hero-cta-secondary:hover {
     background-color: #ffffff;
     color: #3498db;
-    transform: translateY(-3px);
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
 }
 
-@keyframes fadeIn {
+/* Animaciones */
+@keyframes fadeInScale {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideInFromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
     }
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
+
+@keyframes slideInFromBottom {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInText {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 
 /* --- Áreas de Servicio Section --- */
 .areas-servicio-section {
@@ -296,7 +385,7 @@ ul {
 
 .areas-servicio-section .section-description {
     font-size: 1.1em;
-    color: #777;
+    color: #555;
     margin-bottom: 40px;
 }
 
@@ -341,7 +430,7 @@ ul {
 
 .area-item p {
     font-size: 0.95em;
-    color: #666;
+    color: #444;
 }
 
 /* --- Services Section --- */
@@ -358,7 +447,7 @@ ul {
 
 .services-section .section-description {
     font-size: 1.1em;
-    color: #777;
+    color: #555;
     margin-bottom: 40px;
 }
 
@@ -390,7 +479,7 @@ ul {
 }
 
 .service-item p {
-    color: #666;
+    color: #444;
     margin-bottom: 20px;
 }
 
@@ -408,7 +497,7 @@ ul {
 }
 
 .service-item ul li::before {
-    content: '\f00c'; /* Icono de Font Awesome para "check" */
+    content: '\f00c';
     font-family: 'Font Awesome 5 Free';
     font-weight: 900;
     position: absolute;
@@ -476,7 +565,7 @@ ul {
 
 .why-choose-us-section .section-description {
     font-size: 1.1em;
-    color: #777;
+    color: #555;
     margin-bottom: 40px;
 }
 
@@ -519,7 +608,7 @@ ul {
 
 .advantage-item p {
     font-size: 0.9em;
-    color: #666;
+    color: #444;
 }
 
 /* --- Contact Section --- */
@@ -538,7 +627,7 @@ ul {
 
 .contact-section .section-description {
     font-size: 1.1em;
-    color: #777;
+    color: #555;
     margin-bottom: 40px;
 }
 
@@ -644,8 +733,8 @@ ul {
     width: 100%;
     padding: 15px;
     font-size: 1.1em;
-    margin: 0 auto; /* Centra el botón horizontalmente */
-    display: block; /* Necesario para que margin: auto funcione */
+    margin: 0 auto;
+    display: block;
 }
 
 /* --- Footer --- */
@@ -892,14 +981,11 @@ ul {
     .hero-subtitle {
         font-size: 1.1em;
     }
-
-    /* Adaptaciones para el lema en pantallas más pequeñas (móviles) */
-    .slogan-text {
-        font-size: 1.1em; /* Reduce el tamaño de la fuente para móviles */
-        margin-top: 15px;
-        margin-bottom: 10px;
-    }
     
+    .hero-buttons {
+        margin-top: 30px;
+    }
+
     .areas-grid, .services-grid, .advantages-grid {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
@@ -950,64 +1036,84 @@ ul {
     
     .logo {
         gap: 8px;
-        max-width: 70%; /* Nuevo: limita el ancho máximo */
-        display: flex; /* Nuevo: flex para mejor alineación */
-        align-items: center; /* Nuevo: centra verticalmente */
-        flex-shrink: 1; /* Nuevo: permite que se reduzca */
-        min-width: 0; /* Nuevo: permite que el texto se trunque */
+        max-width: 70%;
+        display: flex;
+        align-items: center;
+        flex-shrink: 1;
+        min-width: 0;
     }
     
     .main-header .logo img {
         height: 35px;
-        width: auto; /* Nuevo: mantiene proporciones */
-        flex-shrink: 0; /* Nuevo: evita que la imagen se reduzca */
+        width: auto;
+        flex-shrink: 0;
     }
     
     .logo-text {
         font-size: 0.9em;
-        white-space: nowrap; /* Cambiado de normal a nowrap */
+        white-space: nowrap;
         max-width: 100px;
         overflow: hidden;
         text-overflow: ellipsis;
-        display: inline-block; /* Nuevo: necesario para ellipsis */
-        vertical-align: middle; /* Nuevo: mejora alineación */
+        display: inline-block;
+        vertical-align: middle;
     }
     
     .logo-link {
-        max-width: 100%; /* Cambiado de 70% a 100% */
-        display: flex; /* Nuevo: mejor control del layout */
-        align-items: center; /* Nuevo: centrado vertical */
-        gap: 8px; /* Nuevo: espacio consistente */
-        overflow: hidden; /* Nuevo: evita desbordamiento */
+        max-width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        overflow: hidden;
     }
     
     .menu-toggle {
-        margin-left: 10px; /* Nuevo: espacio entre logo y botón */
-        flex-shrink: 0; /* Nuevo: evita que se reduzca */
+        margin-left: 10px;
+        flex-shrink: 0;
     }
     
-    /* El resto de tus reglas existentes se mantienen igual */
     .main-nav ul {
         top: 60px;
     }
     
     .hero-section {
-        min-height: calc(100vh - 60px);
+        min-height: calc(127vh - 270px);
     }
     
     .hero-overlay {
-        padding: 35px 10px 55px 10px;
+        padding: 35px 25px 55px 25px; /* Mantener este padding modificado */
         border-radius: 8px;
     }
     
     .hero-title {
-        font-size: 1.8em;
+        font-size: 1.6em;
         margin-bottom: 10px;
+        line-height: 1.4;
     }
     
     .hero-subtitle {
-        font-size: 0.9em;
+        font-size: 0.85em;
         margin-bottom: 20px;
+    }
+    
+    .experience-text {
+        font-size: 0.9em;
+        margin-top: 10px;
+        margin-bottom: 25px;
+        gap: 6px;
+        line-height: 1.2;
+    }
+
+    .experience-phrase {
+        white-space: nowrap;
+        font-size: 0.95em;
+        display: block;
+        width: fit-content;
+        margin: 0 auto;
+    }
+    
+    .experience-text strong {
+        color: #2ecc71;
     }
     
     .hero-cta-main, .hero-cta-secondary {
