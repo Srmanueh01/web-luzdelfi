@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sitio en Mantenimiento - MH Servicios</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Estilos básicos para la página de mantenimiento */
+        body {
+            font-family: 'Roboto', sans-serif; /* Puedes importar Google Fonts si quieres */
+            background-color: #f4f7f6;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            text-align: center;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        .maintenance-container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            animation: fadeIn 1s ease-out;
+        }
+        .maintenance-container h1 {
+            color: #2c3e50;
+            font-family: 'Montserrat', sans-serif; /* Puedes importar Google Fonts */
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        .maintenance-container p {
+            font-size: 1.1em;
+            margin-bottom: 25px;
+        }
+        .maintenance-container .icon {
+            font-size: 4em;
+            color: #3498db;
+            margin-bottom: 30px;
+            animation: bounce 2s infinite;
+        }
+        .maintenance-container .contact-info {
+            margin-top: 30px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+        .maintenance-container .contact-info a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .maintenance-container .contact-info a:hover {
+            text-decoration: underline;
+        }
+        .maintenance-container .logo {
+            margin-top: 20px;
+            max-width: 150px;
+            height: auto;
+        }
+
+        /* Animaciones */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-15px); }
+            60% { transform: translateY(-7px); }
+        }
+
+        /* Fuentes (puedes añadir los @import si no los tienes ya en home.css) */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@400;700&display=swap');
+    </style>
+</head>
+<body>
+
+    <div class="maintenance-container">
+        <i class="fas fa-tools icon"></i> <h1>¡Estamos trabajando para mejorar tu experiencia!</h1>
+        <p>Nuestro sitio web está actualmente en mantenimiento. Pedimos disculpas por cualquier inconveniente que esto pueda causarte.</p>
+        <p>Volveremos pronto con novedades. Gracias por tu paciencia.</p>
+
+        <div class="contact-info">
+            <p>Mientras tanto, puedes contactarnos por vía telefónica:</p>
+            <!-- <p><i class="fas fa-envelope"></i> <a href="mailto:info@luzdelfi.com">info@luzdelfi.com</a></p> -->
+            <p><i class="fas fa-phone"></i> <a href="tel:+34690038030">+34 933 52 62 85</a></p>
+        </div>
+
+        <img src="/home_files/imgs/logo_home.png" alt="Logo MH Servicios" class="logo">
+    </div>
+
+</body>
+</html>
