@@ -13,9 +13,7 @@ body {
     overflow-x: hidden;
 }
 
-*,
-*::before,
-*::after {
+*, *::before, *::after {
     box-sizing: inherit;
 }
 
@@ -25,12 +23,7 @@ body {
     padding: 0 40px;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
     font-family: 'Montserrat', sans-serif;
     color: #2c3e50;
     margin-top: 0;
@@ -61,7 +54,7 @@ ul {
 .main-header {
     background-color: #ffffff;
     padding: 15px 0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     position: sticky;
     top: 0;
     left: 0;
@@ -204,7 +197,7 @@ ul {
     border-radius: 10px;
     max-width: 800px;
     width: 90%;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     animation: fadeIn 1s ease-out forwards;
 }
 
@@ -220,6 +213,21 @@ ul {
     font-size: 1.3em;
     margin-bottom: 30px;
     color: #f0f0f0;
+}
+
+/* ESTILOS PARA EL LEMA "VELAR POR LA TRANQUILIDAD DE CLIENTE" */
+.slogan-text {
+    display: block; /* Asegura que el lema esté en su propia línea */
+    margin-top: 25px; /* Espacio por encima del lema para separarlo del subtítulo */
+    margin-bottom: 15px; /* Espacio por debajo del lema para separarlo de los botones */
+    font-family: 'Montserrat', sans-serif; /* Puedes usar la misma fuente de los títulos */
+    font-size: 1.6em; /* Un tamaño de fuente mayor para que destaque */
+    font-weight: 700; /* Negrita para mayor énfasis */
+    color: #ffffff; /* Color blanco puro para contraste con el fondo oscuro del hero */
+    text-transform: uppercase; /* Opcional: para que todo el texto esté en mayúsculas */
+    letter-spacing: 1.5px; /* Opcional: ligeramente más espaciado entre letras */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* Sombra de texto suave para mejor legibilidad */
+    line-height: 1.3; /* Espaciado de línea si el texto se divide en varias líneas */
 }
 
 .hero-buttons {
@@ -268,7 +276,6 @@ ul {
         opacity: 0;
         transform: translateY(20px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);
@@ -304,14 +311,14 @@ ul {
     background-color: #ffffff;
     padding: 30px;
     border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: center;
 }
 
 .area-item:hover {
     transform: translateY(-10px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
 .areas-servicio-section .area-item i {
@@ -319,29 +326,12 @@ ul {
     margin-bottom: 15px;
 }
 
-.icon-control-accesos {
-    color: #2c3e50;
-}
-
-.icon-limpieza-hoteles {
-    color: #3498db;
-}
-
-.icon-limpieza-colegios {
-    color: #27ae60;
-}
-
-.icon-comunidades-oficinas {
-    color: #8e44ad;
-}
-
-.icon-eventos-congresos {
-    color: #e67e22;
-}
-
-.icon-servicios-auxiliares {
-    color: #f1c40f;
-}
+.icon-control-accesos { color: #2c3e50; }
+.icon-limpieza-hoteles { color: #3498db; }
+.icon-limpieza-colegios { color: #27ae60; }
+.icon-comunidades-oficinas { color: #8e44ad; }
+.icon-eventos-congresos { color: #e67e22; }
+.icon-servicios-auxiliares { color: #f1c40f; }
 
 .area-item h3 {
     font-size: 1.5em;
@@ -383,14 +373,14 @@ ul {
     background-color: #ffffff;
     padding: 30px;
     border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: left;
 }
 
 .service-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
 }
 
 .service-item h3 {
@@ -418,7 +408,7 @@ ul {
 }
 
 .service-item ul li::before {
-    content: '\2713';
+    content: '\f00c'; /* Icono de Font Awesome para "check" */
     font-family: 'Font Awesome 5 Free';
     font-weight: 900;
     position: absolute;
@@ -469,7 +459,7 @@ ul {
     max-width: 100%;
     height: auto;
     border-radius: 8px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
 }
 
 /* --- Why Choose Us Section --- */
@@ -501,14 +491,14 @@ ul {
     background-color: #ffffff;
     padding: 30px;
     border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: center;
 }
 
 .advantage-item:hover {
     transform: translateY(-8px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
 .why-choose-us-section .advantage-item i {
@@ -516,21 +506,10 @@ ul {
     margin-bottom: 20px;
 }
 
-.icon-ventaja-seguridad {
-    color: #34495e;
-}
-
-.icon-ventaja-profesionalidad {
-    color: #f39c12;
-}
-
-.icon-ventaja-limpieza {
-    color: #1abc9c;
-}
-
-.icon-ventaja-atencion {
-    color: #c0392b;
-}
+.icon-ventaja-seguridad { color: #34495e; }
+.icon-ventaja-profesionalidad { color: #f39c12; }
+.icon-ventaja-limpieza { color: #1abc9c; }
+.icon-ventaja-atencion { color: #c0392b; }
 
 .advantage-item h3 {
     font-size: 1.4em;
@@ -571,20 +550,18 @@ ul {
     margin-top: 40px;
 }
 
-.contact-info,
-.contact-form {
+.contact-info, .contact-form {
     flex: 1;
     min-width: 300px;
     max-width: 500px;
     background-color: rgba(255, 255, 255, 0.1);
     padding: 30px;
     border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     text-align: left;
 }
 
-.contact-info h3,
-.contact-form h3 {
+.contact-info h3, .contact-form h3 {
     font-size: 2em;
     margin-bottom: 25px;
     color: #ffffff;
@@ -624,17 +601,9 @@ ul {
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.social-icon .icon-facebook {
-    color: #3b5998;
-}
-
-.social-icon .icon-instagram {
-    color: #C13584;
-}
-
-.social-icon .icon-linkedin {
-    color: #007bb5;
-}
+.social-icon .icon-facebook { color: #3b5998; }
+.social-icon .icon-instagram { color: #C13584; }
+.social-icon .icon-linkedin { color: #007bb5; }
 
 .social-icon:hover {
     background-color: #3498db;
@@ -672,16 +641,11 @@ ul {
 }
 
 .contact-form .cta-button {
-    margin-left: 0;
-    /* Asegurar que el botón del formulario no tenga margen izquierdo */
-    width: auto;
-    /* Ajustar el ancho del botón al contenido */
-    align-self: center;
-    /* Centrar el botón en el formulario */
-    padding: 15px 30px;
-    /* Aumentar el padding para que sea más prominente */
+    width: 100%;
+    padding: 15px;
     font-size: 1.1em;
-    /* Ajustar el tamaño de la fuente */
+    margin: 0 auto; /* Centra el botón horizontalmente */
+    display: block; /* Necesario para que margin: auto funcione */
 }
 
 /* --- Footer --- */
@@ -817,7 +781,7 @@ ul {
     text-decoration: none;
     font-weight: bold;
     z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
     white-space: nowrap;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
@@ -839,27 +803,27 @@ ul {
     .container {
         padding: 0 20px;
     }
-
+    
     .main-header .container {
         justify-content: space-between;
         position: relative;
         min-height: 70px;
     }
-
+    
     .logo-link {
         flex-shrink: 0;
         max-width: 80%;
     }
-
+    
     .logo-text {
         font-size: 1em;
         display: inline-block;
     }
-
+    
     .main-nav {
         padding-right: 0;
     }
-
+    
     .main-nav ul {
         display: flex;
         flex-direction: column;
@@ -868,7 +832,7 @@ ul {
         left: 0;
         width: 100%;
         background-color: #ffffff;
-        box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 5px rgba(0,0,0,0.1);
         padding: 20px 0;
         opacity: 0;
         visibility: hidden;
@@ -877,92 +841,97 @@ ul {
         z-index: 998;
         gap: 0;
     }
-
+    
     .main-nav ul.open {
         opacity: 1;
         visibility: visible;
         transform: translateY(0);
     }
-
+    
     .main-nav ul li {
         margin: 0;
         padding: 15px 25px;
         border-bottom: 1px solid #eee;
         text-align: center;
     }
-
+    
     .main-nav ul li:last-child {
         border-bottom: none;
     }
-
+    
     .main-nav ul li a {
         font-size: 1.2em;
         padding: 10px 0;
         width: 100%;
         display: block;
     }
-
+    
     .main-nav ul li a::after {
         left: 50%;
         transform: translateX(-50%);
     }
-
+    
     .main-nav ul li a:hover::after {
         width: 80%;
     }
-
+    
     .cta-button {
         display: none;
     }
-
+    
     .menu-toggle {
         display: block;
         order: 1;
         margin-left: auto;
     }
-
+    
     .hero-title {
         font-size: 2.8em;
     }
-
+    
     .hero-subtitle {
         font-size: 1.1em;
     }
 
-    .areas-grid,
-    .services-grid,
-    .advantages-grid {
+    /* Adaptaciones para el lema en pantallas más pequeñas (móviles) */
+    .slogan-text {
+        font-size: 1.1em; /* Reduce el tamaño de la fuente para móviles */
+        margin-top: 15px;
+        margin-bottom: 10px;
+    }
+    
+    .areas-grid, .services-grid, .advantages-grid {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
-
+    
     .about-section .container {
         flex-direction: column;
         text-align: center;
     }
-
+    
     .about-image {
         order: -1;
         margin-bottom: 30px;
     }
-
+    
     .contact-content {
         flex-direction: column;
     }
-
+    
     .footer-grid {
         grid-template-columns: 1fr;
         text-align: center;
     }
-
+    
     .footer-col h4::after {
         left: 50%;
         transform: translateX(-50%);
     }
-
+    
     .footer-social-links {
         justify-content: center;
     }
-
+    
     .footer-col.contact-details p {
         justify-content: center;
     }
@@ -973,127 +942,108 @@ ul {
     .main-header {
         padding: 10px 0;
     }
-
+    
     .main-header .container {
         padding: 0 15px;
         justify-content: space-between;
     }
-
+    
     .logo {
         gap: 8px;
-        max-width: 70%;
-        /* Nuevo: limita el ancho máximo */
-        display: flex;
-        /* Nuevo: flex para mejor alineación */
-        align-items: center;
-        /* Nuevo: centra verticalmente */
-        flex-shrink: 1;
-        /* Nuevo: permite que se reduzca */
-        min-width: 0;
-        /* Nuevo: permite que el texto se trunque */
+        max-width: 70%; /* Nuevo: limita el ancho máximo */
+        display: flex; /* Nuevo: flex para mejor alineación */
+        align-items: center; /* Nuevo: centra verticalmente */
+        flex-shrink: 1; /* Nuevo: permite que se reduzca */
+        min-width: 0; /* Nuevo: permite que el texto se trunque */
     }
-
+    
     .main-header .logo img {
         height: 35px;
-        width: auto;
-        /* Nuevo: mantiene proporciones */
-        flex-shrink: 0;
-        /* Nuevo: evita que la imagen se reduzca */
+        width: auto; /* Nuevo: mantiene proporciones */
+        flex-shrink: 0; /* Nuevo: evita que la imagen se reduzca */
     }
-
+    
     .logo-text {
         font-size: 0.9em;
-        white-space: nowrap;
-        /* Cambiado de normal a nowrap */
+        white-space: nowrap; /* Cambiado de normal a nowrap */
         max-width: 100px;
         overflow: hidden;
         text-overflow: ellipsis;
-        display: inline-block;
-        /* Nuevo: necesario para ellipsis */
-        vertical-align: middle;
-        /* Nuevo: mejora alineación */
+        display: inline-block; /* Nuevo: necesario para ellipsis */
+        vertical-align: middle; /* Nuevo: mejora alineación */
     }
-
+    
     .logo-link {
-        max-width: 100%;
-        /* Cambiado de 70% a 100% */
-        display: flex;
-        /* Nuevo: mejor control del layout */
-        align-items: center;
-        /* Nuevo: centrado vertical */
-        gap: 8px;
-        /* Nuevo: espacio consistente */
-        overflow: hidden;
-        /* Nuevo: evita desbordamiento */
+        max-width: 100%; /* Cambiado de 70% a 100% */
+        display: flex; /* Nuevo: mejor control del layout */
+        align-items: center; /* Nuevo: centrado vertical */
+        gap: 8px; /* Nuevo: espacio consistente */
+        overflow: hidden; /* Nuevo: evita desbordamiento */
     }
-
+    
     .menu-toggle {
-        margin-left: 10px;
-        /* Nuevo: espacio entre logo y botón */
-        flex-shrink: 0;
-        /* Nuevo: evita que se reduzca */
+        margin-left: 10px; /* Nuevo: espacio entre logo y botón */
+        flex-shrink: 0; /* Nuevo: evita que se reduzca */
     }
-
+    
     /* El resto de tus reglas existentes se mantienen igual */
     .main-nav ul {
         top: 60px;
     }
-
+    
     .hero-section {
         min-height: calc(100vh - 60px);
     }
-
+    
     .hero-overlay {
         padding: 35px 10px 55px 10px;
         border-radius: 8px;
     }
-
+    
     .hero-title {
         font-size: 1.8em;
         margin-bottom: 10px;
     }
-
+    
     .hero-subtitle {
         font-size: 0.9em;
         margin-bottom: 20px;
     }
-
-    .hero-cta-main,
-    .hero-cta-secondary {
+    
+    .hero-cta-main, .hero-cta-secondary {
         padding: 10px 20px;
         font-size: 0.9em;
     }
-
+    
     h2 {
         font-size: 1.8em;
     }
-
+    
     .section-description {
         font-size: 0.95em;
     }
-
+    
     .areas-servicio-section .area-item,
     .service-item,
     .advantage-item,
-    .contact-info,
-    .contact-form {
+    .contact-info, .contact-form {
         padding: 20px;
     }
-
+    
     .areas-servicio-section .area-item i {
         font-size: 2.8em;
     }
-
+    
     .why-choose-us-section .advantage-item i {
         font-size: 2.5em;
     }
-
+    
     .social-icon {
         width: 40px;
         height: 40px;
         font-size: 1.2em;
     }
-
+    
     .trabaja-con-nosotros {
         display: block;
         position: fixed;
@@ -1106,7 +1056,7 @@ ul {
         font-size: 0.9em;
         padding: 10px 15px;
     }
-
+    
     .trabaja-con-nosotros:hover {
         background-color: #e67e22;
         transform: scale(1.05);
