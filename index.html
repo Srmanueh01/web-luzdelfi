@@ -213,8 +213,8 @@
                 <div class="contact-content">
                     <div class="contact-form">
                         <h3>Envíanos un Mensaje</h3>
-                        <form action="#" method="POST">
-                            <input type="text" name="name" placeholder="Tu Nombre" required>
+                        <form id="contact-form" action="#" method="POST"> <input type="text" name="name"
+                                placeholder="Tu Nombre" required>
                             <input type="email" name="email" placeholder="Tu Email" required>
                             <input type="text" name="subject" placeholder="Asunto">
                             <textarea name="message" placeholder="Tu Mensaje" rows="5" required></textarea>
@@ -267,7 +267,20 @@
         </div>
     </footer>
 
+    <div id="cookie-consent-banner" class="cookie-banner hidden">
+        <div class="container">
+            <p>Utilizamos cookies propias y de terceros para fines de análisis de tráfico web (Google Analytics). Si no
+                nos das permiso para ello, tus datos solo serán utilizados para responder a tus peticiones a través del
+                formulario de contacto.</p>
+            <div class="cookie-buttons">
+                <button id="accept-cookies" class="btn-primary">Aceptar todas</button>
+                <button id="reject-cookies" class="btn-secondary">Rechazar todas</button>
+            </div>
+        </div>
+    </div>
+
     <script src="home_files/home.js"></script>
+    <script src="home_files/cookie-consent.js"></script>
 </body>
 
 </html>
